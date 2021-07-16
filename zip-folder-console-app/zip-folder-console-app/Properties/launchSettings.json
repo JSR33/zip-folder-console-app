@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "zip-folder-console-app": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:/\" \"C:/\" \".pdf,.png\" \"\" \"xpto.xml\""
+    }
+  }
+}
