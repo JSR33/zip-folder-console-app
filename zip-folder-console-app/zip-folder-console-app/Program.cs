@@ -35,6 +35,7 @@ namespace zip_folder_console_app
                 if (!string.IsNullOrEmpty(args[5]))
                     _outputType = Convert.ToInt32(args[5]);
                 else throw new ArgumentNullException("Output Type is null or empty.");
+                _outputParameters = args[6];
 
 
                 ZipServer server = new ZipServer();
