@@ -42,7 +42,7 @@ namespace zip_folder_console_app
                 server.Zip(_folderToZip, _zipFolderName, _excludedExtensions, _excludedDirectories, _excludedFiles);
 
                 SendFile sendFile = new SendFile();
-                sendFile.Send(_outputType, _outputParameters, _zipFolderName);
+                sendFile.Send(_outputType, _outputParameters, Directory.GetParent(_folderToZip) + @"\" + _zipFolderName);
             }
             catch(Exception e)
             {

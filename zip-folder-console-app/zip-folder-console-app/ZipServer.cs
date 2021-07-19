@@ -31,14 +31,14 @@ namespace zip_folder_console_app
                     zip.AddFile(f, GetCleanFolderName(source, f));
                 }
 
-                var destinationFilename = destination;
+                var destinationFilename = Directory.GetParent(source) + @"\" + destination;
 
-                if (Directory.Exists(destination) && !destination.EndsWith(".zip"))
+                if (Directory.Exists(destinationFilename) && !destinationFilename.EndsWith(".zip"))
                 {
                     destinationFilename += $"\\{new DirectoryInfo(source).Name}-{DateTime.Now:yyyy-MM-dd-HH-mm-ss-ffffff}.zip";
                 }
 
-                zip.Save(destination);
+                zip.Save(destinationFilename);
             }
         }
 
