@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Text.RegularExpressions;
+using zip_folder_console_app.SendZipFactory;
+using zip_folder_console_app.SendZipFactory.CreatorsTypes;
 
 namespace zip_folder_console_app
 {
@@ -18,7 +20,6 @@ namespace zip_folder_console_app
 
         static void Main(string[] args)
         {
-
             try
             {
                 if (ArgsValidation.ValidatePaths(args[0]))
@@ -38,6 +39,9 @@ namespace zip_folder_console_app
 
                 ZipServer server = new ZipServer();
                 server.Zip(_folderToZip, _zipFolderName, _excludedExtensions, _excludedDirectories, _excludedFiles);
+
+                SendFile sendFile = new SendFile();
+                sendFile.Send(_outputType, _outputParameters, _zipFolderName);
             }
             catch(Exception e)
             {
