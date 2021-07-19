@@ -16,10 +16,12 @@ namespace zip_folder_console_app
             using (ZipFile zip = new ZipFile { CompressionLevel = CompressionLevel.BestCompression })
             {
                 var filesList = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-                
+
                 var rejectedFiles = filesList.
-                    Where(f => excludedExtensions.Contains(Path.GetExtension(f).ToLowerInvariant()) 
-                    || excludedDirectories.Contains(new DirectoryInfo(Path.GetDirectoryName(f)).Name) 
+                    Where(f => 
+                    excludedExtensions.Contains(Path.GetExtension(f).ToLowerInvariant())
+                    // || excludedDirectories.Contains(new DirectoryInfo(Path.GetDirectoryName(f)).Name) 
+                    || (excludedDirectories.Length > 0 ? new DirectoryInfo(Path.GetDirectoryName(f)).FullName.Contains(string.Format(@"\{0}", excludedDirectories)) : false)
                     || excludedFiles.Contains(Path.GetFileNameWithoutExtension(f))).ToArray();
                
                 var filteredFiles = filesList.Except(rejectedFiles);

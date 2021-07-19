@@ -18,6 +18,7 @@ namespace zip_folder_console_app
 
         static void Main(string[] args)
         {
+
             try
             {
                 if (ArgsValidation.ValidatePaths(args[0]))
@@ -27,7 +28,7 @@ namespace zip_folder_console_app
                 if (ArgsValidation.ValidateExclusionsArrays(args[2]))
                     _excludedExtensions = args[2].Split(',');
                 if (ArgsValidation.ValidateExclusionsArrays(args[3]))
-                    _excludedDirectories = args[3].Split(',');
+                    _excludedDirectories = args[3] == "" ? new string[] { } : args[3].Split(',');
                 if (ArgsValidation.ValidateExclusionsArrays(args[4]))
                     _excludedFiles = args[4].Split(',');
                 if (!string.IsNullOrEmpty(args[5]))
