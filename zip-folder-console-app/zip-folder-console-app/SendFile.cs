@@ -17,6 +17,12 @@ namespace zip_folder_console_app
                 case 1:
                     sender = new EmailCreator();
                     break;
+                case 2:
+                    sender = new FileShareCreator();
+                    break;
+                case 3:
+                    sender = new FolderCreator();
+                    break;
                 default:
                     throw new Exception("Output type not valid");
             }
