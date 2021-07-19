@@ -24,7 +24,7 @@ namespace zip_folder_console_app
             {
                 if (ArgsValidation.ValidatePaths(args[0]))
                     _folderToZip = args[0];
-                //if (ArgsValidation.ValidatePaths(args[1]))
+                if (ArgsValidation.ValidateZipExtension(args[1]))
                     _zipFolderName = args[1];
                 if (ArgsValidation.ValidateExclusionsArrays(args[2]))
                     _excludedExtensions = args[2].Split(',');

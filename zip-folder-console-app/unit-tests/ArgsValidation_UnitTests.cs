@@ -67,5 +67,29 @@ namespace unit_tests
             //Assert
             Assert.Throws<ArgumentNullException>(act);
         }
+
+        [Fact]
+        public void Check_Extension_Of_Zip_File()
+        {
+            //Arrange
+
+            //Act
+            bool validatedString = ArgsValidation.ValidateZipExtension("teste.zip");
+
+            //Assert
+            Assert.True(validatedString);
+        }
+
+        [Fact]
+        public void Check_Not_Valid_Extension_Of_Zip_File()
+        {
+            //Arrange
+
+            //Act
+            Action act = () => ArgsValidation.ValidateZipExtension("teste.txt");
+
+            //Assert
+            Assert.Throws<Exception>(act);
+        }
     }
 }

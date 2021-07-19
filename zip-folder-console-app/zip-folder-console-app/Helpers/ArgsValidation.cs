@@ -21,6 +21,19 @@ namespace zip_folder_console_app
             return true;
         }
 
+        public static bool ValidateZipExtension(string arg)
+        {
+            if (string.IsNullOrWhiteSpace(arg))
+            {
+                throw new ArgumentNullException("Argument (zip file name) cannot be null or empty");
+            }
+
+            var temp = arg.Split('.');
+            if (temp[temp.Length - 1] != "zip")
+                throw new Exception("zip file name extension not valide (not zip)");
+            return true;
+        }
+
         public static bool ValidateExclusionsArrays(string arg)
         {
             if (arg == null)
