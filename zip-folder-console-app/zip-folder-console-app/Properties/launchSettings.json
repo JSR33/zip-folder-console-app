@@ -2,7 +2,7 @@
   "profiles": {
     "zip-folder-console-app": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\Public\\TestesAppZip\" \"zipped.zip\" \"\" \"\" \"\" 1 \"soares1161@hotmail.com\""
+      "commandLineArgs": "\"C:\\Users\\Public\\TestesAppZip\" \"zipped.zip\" \"\" \"\" \"\" 2 \"\\\\192.168.3.6\\Maeil\\Backup\\zipped.zip\""
     }
   }
 }

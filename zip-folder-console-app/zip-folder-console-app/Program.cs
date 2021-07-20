@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
-using System.Text.RegularExpressions;
-using zip_folder_console_app.SendZipFactory;
-using zip_folder_console_app.SendZipFactory.CreatorsTypes;
 
 namespace zip_folder_console_app
 {
@@ -43,6 +38,8 @@ namespace zip_folder_console_app
 
                 SendFile sendFile = new SendFile();
                 sendFile.Send(_outputType, _outputParameters, Directory.GetParent(_folderToZip) + @"\" + _zipFolderName);
+
+                Console.WriteLine("Job ended with success!");
             }
             catch(Exception e)
             {
